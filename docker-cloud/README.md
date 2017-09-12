@@ -11,8 +11,9 @@ Click on "Bring your own node"
 
 Make note of the registration hash as we will need it for the Terraform setup
 
+## GitLab Stack
 
-## Create a stack
+### Create a stack
 Once you have a node registered in Docker Cloud (the terraform should do it) you
 will need to compose a stack to host the GitLab service
 
@@ -29,7 +30,7 @@ For the YML drag and drop in the gitlab-stack.yml or paste it's content.
 
 Click on Create (Note: don't click on Create & Deploy)
 
-## Configure stack
+### Configure stack
 
 Once your create the stack you need to edit the CHANGE_TO_SERVICE_ENDPOINT in the setup.
 
@@ -54,3 +55,22 @@ Once line's 4 / 16 have been updated click on Save
 
 Now click on Start and the GitLab engine should be accessible in 3-5mins.
 
+## SimpleWeb Stack
+
+### Create a stack
+Once you have a node registered in Docker Cloud (the terraform should do it) you
+will need to compose a stack to host the demo Website service
+
+A stack is comprised of two services in this case the prod and
+dev. Each side of the stack follows the Docker Tags and will update when a new container is
+pushed to the Docker Hub.
+
+Click on Stacks
+
+Click on Create
+
+For a name enter SimpleWeb
+
+For the YML drag and drop in the simpleweb-stack.yml or paste it's content.
+
+Click on Create & Deploy
