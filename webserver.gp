@@ -29,7 +29,7 @@ func helloworld(w http.ResponseWriter, r *http.Request) {
 func main() {
 
 	http.HandleFunc("/", helloworld)            // open handler on / and pass to parameter func getHook
-	err := http.ListenAndServe(":8282", nil) // open port 8181
+	err := http.ListenAndServe(":8081", nil) // open port 8081
 	if err != nil {
 		log.Fatal(err)
 	}
