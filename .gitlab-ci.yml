@@ -23,11 +23,22 @@ Build Web Server:
   
 # This stage builds the docker image and tags it as hfxdevopdemo/simpleweb:latest, it then pushes it to Docker Hub. 
 # We're using protected project variables for the user/password.
-
+Build Test Docker Image:
+  stage: build
+  environment: dev
+  script:
+    - docker login -u $USER -p $PASSWORD
+    - docker build -t hfxdevopdemo/simpleweb:dev .
+    - docker push hfxdevopdemo/simpleweb:dev
+    
+# This stage builds the docker image and tags it as hfxdevopdemo/simpleweb:latest, it then pushes it to Docker Hub. 
+# We're using protected project variables for the user/password.
 Build Docker Image:
   stage: build
+  environment: prod
   script:
     - docker login -u $USER -p $PASSWORD
     - docker build -t hfxdevopdemo/simpleweb:latest .
     - docker push hfxdevopdemo/simpleweb:latest
-    
+  only:
+    - master
