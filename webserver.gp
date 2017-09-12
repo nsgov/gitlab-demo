@@ -18,7 +18,7 @@ func init() {
 
 func helloworld(w http.ResponseWriter, r *http.Request) {
 
-	err := temp.ExecuteTemplate(w, "devops.html", "DevOps Halifax")
+	err := temp.ExecuteTemplate(w, "/usr/local/bin/devops.html", "DevOps Halifax")
 
 	if err != nil {
 		log.Fatalln(err)
