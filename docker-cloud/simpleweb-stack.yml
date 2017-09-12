@@ -1,0 +1,13 @@
+prod:
+  autoredeploy: true
+  image: 'hfxdevopdemo/simpleweb:latest'
+  ports:
+    - '8081:8081'
+  restart: always
+
+dev:
+  autoredeploy: true
+  image: 'hfxdevopdemo/simpleweb:dev'
+  ports:
+    - '8082:8081'
+  restart: always
