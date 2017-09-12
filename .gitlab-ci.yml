@@ -21,7 +21,7 @@ Build Web Server:
     - devops.html
     expire_in: 1 week
   
-# This stage builds the docker image and tags it as hfxdevopdemo/simpleweb:latest, it then pushes it to Docker Hub. 
+# This stage builds the docker image and tags it as hfxdevopdemo/simpleweb:dev, it then pushes it to Docker Hub. 
 # We're using protected project variables for the user/password.
 Build Test Docker Image:
   stage: build
