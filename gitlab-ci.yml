@@ -1,0 +1,18 @@
+image: docker.io/golang
+variables:
+  NAME_SPACE: "zincksw"
+  DOCKER_REGISTRY: "XYZ"
+  DOCKER_HOST: "tcp:/XYZ:4243"
+
+
+
+Build Docker Image:
+  stage: build
+  environment: qa
+  script:
+    - find . -name "webserver.go" -exec go build {} \;
+    - docker login -u gitlab-ci-token -p ${CI_JOB_TOKEN} ${DOCKER_REGISTRY}
+    - docker build -t ${DOCKER_REGISTRY}/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}:${CI_COMMIT_SHA} .
+    - docker push ${DOCKER_REGISTRY}/${NAME_SPACE}/${CI_PROJECT_NAME}:${CI_COMMIT_SHA}
+  tags:
+    - docker
