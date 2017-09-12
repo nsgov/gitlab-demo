@@ -1,0 +1,22 @@
+app:
+  autoredeploy: true
+  environment:
+    - "GITLAB_OMNIBUS_CONFIG=external_url 'http://CHANGE_TO_SERVICE_ENDPOINT/';"
+    - GITLAB_SHARED_RUNNERS_REGISTRATION_TOKEN=8k392YGM9V3FpvjwA8vk
+  image: 'gitlab/gitlab-ce:latest'
+  ports:
+    - '2222:22'
+    - '80:80'
+    - '443:443'
+    - '4567:4567'
+  restart: always
+runner:
+  autoredeploy: true
+  environment:
+    - 'register=gitlab-runner register -n --run-untagged --executor docker --docker-privileged --docker-image docker:latest --tag-list docker -u http://CHANGE_TO_SERVICE_ENDPOINT/ -r 8k392YGM9V3FpvjwA8vk'
+  image: 'gitlab/gitlab-runner:latest'
+  links:
+    - app
+  volumes:
+    - '/var/run/docker.sock:/var/run/docker.sock'
+
