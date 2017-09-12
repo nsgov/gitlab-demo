@@ -9,7 +9,9 @@ Click on "Nodes"
 
 Click on "Bring your own node"
 
-Make note of the registration hash as we will need it for the Terraform setup
+Make note of the registration hash and proceed to the Terraform setup.
+
+Note: Make sure you have a node adopted in the Docker Cloud > Node section before proceeding
 
 ## GitLab Stack
 
