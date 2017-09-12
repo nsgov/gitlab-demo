@@ -34,6 +34,6 @@ Edit line 24 in the `aws-docker.tf` with the key thats displayed on the web page
 Once the above edits are done you can now construct the EC2 instance.
   `./terraform apply`
 
-At the end it should show the IP address of the host created. You can SSH to the host with the username ubuntu and the identity of keys/id_rsa
+At the end it should show the IP address of the host created. You can SSH to the host with the username ubuntu and the identity of keys/id_rsa.pub
 
 Confirm you see a node provisioning in the Docker Cloud nodes section.
