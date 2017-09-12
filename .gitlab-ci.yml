@@ -3,14 +3,14 @@ stages:
   - build
 
 services:
-- docker:dind
+  - docker:dind
 
 variables:
   USER: "hfxdevopdemo"
   
 # This stage compiles the webserver code and then artifacts the binary & html for 1 week
 Build Web Server:
-image: docker.io/golang
+  image: docker.io/golang
   stage: compile
   environment: qa
   script:
