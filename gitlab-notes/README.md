@@ -1,6 +1,6 @@
 # GitLab Notes
 
-* Assumes the Docker Cloud GitLab stack has been started
+* Assumes the [Docker Cloud GitLab](https://github.com/nsgov/gitlab-demo/tree/master/docker-cloud#gitlab-stack) stack has been started
 
 ## Initialization
 We need to wait for 2-3mins for the interface to load
@@ -112,4 +112,4 @@ Click on the `number` in the Pipeline column
 
 
 ## Setup the SimpleWeb stack
-Visit the docker-cloud/README.md and see the section about SimpleWeb Stack
+Visit the [docker-cloud/README.md](https://github.com/nsgov/gitlab-demo/tree/master/docker-cloud#simpleweb-stack) and see the section about SimpleWeb Stack
