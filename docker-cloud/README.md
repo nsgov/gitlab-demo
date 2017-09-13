@@ -89,6 +89,8 @@ Login to [Docker Cloud](https://cloud.docker.com)
 
 * For the YML drag and drop in the simpleweb-stack.yml or paste it's content.
 
+* Modify lines 3 and 10 to the correct Docker Hub repository you setup earlier
+
 * Click on `Create & Deploy`
 
 Now the website should be accessible in the app endpoint. Note we've deployed two endpoints one for development usage and one for production
