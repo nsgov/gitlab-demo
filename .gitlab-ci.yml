@@ -1,13 +1,16 @@
+# Set the hub.docker.com username and container registry below.
+# Use a GitLab runner variable to store the password
+variables:
+  DOCKER_USER: 'hfxdevopdemo'
+  CONTAINER_NAME: 'hfxdevopdemo/simpleweb'
+
+# Stages in the pipeline
 stages:
   - compile
   - build
 
 services:
   - docker:dind
-
-variables:
-  DOCKER_USER: 'hfxdevopdemo'
-  CONTAINER_NAME: 'hfxdevopdemo/simpleweb'
   
 # This stage compiles the webserver code and then artifacts the binary & html for 1 week
 Compile Webserver:
