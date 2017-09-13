@@ -2,12 +2,18 @@
 
 ## Requirements
  * AWS account with terraform [IAM access](https://www.terraform.io/intro/getting-started/build.html).
+ * A [Docker Cloud](https://cloud.docker.com) account with the node information.
  * Download the [Terraform executable](https://www.terraform.io/downloads.html) to this directory
- * Run `./terraform init` to download the AWS module
- * Edit the `aws-docker.tf` with the appropriate keys
 
-## Generate SSH Keys
-You need to generate a SSH keypair to use to provide authenticated access to the EC2 instance.
+## Setup Terraform
+
+### Initialize Terraform
+We need to initialize Terraform to download any modules
+
+ * Run `./terraform init`
+
+### Generate SSH Keys
+We will need a SSH keypair to use to provide authenticated access to the EC2 instance.
 
 Change directory to the keys/ folder
   `cd keys/`
@@ -18,17 +24,26 @@ Now generate a keypair to use with the EC2 instance
 Change out of the keys folder
   `cd ..`
 
-## Edit the Plan
-Edit the `aws-docker.tf` and replace the keys on lines 2-3 with the AWS IAM credentials (Note: these credentials are sensitive so make sure you remove them).
+### Get a Docker Cloud key
+We need to set the key 
 
-Before running this plan make sure you have setup a [Docker Cloud](https://cloud.docker.com) account.
+Login to [Docker Cloud](https://cloud.docker.com)
 
-Click on `Nodes` and `Bring your own Node`.
+* Click on `Nodes` and `Bring your own Node`.
 
 Displayed will be a curl command something like
   `curl -Ls https://get.cloud.docker.com/ | sudo -H sh -s 232d2kewjsakjd2`
 
-Edit line 24 in the `aws-docker.tf` with the key thats displayed on the web page.
+The hash at the end of the line is the node key.
+
+### Customize the Plan
+We need to set custom variables in the plan
+
+* Edit the `aws-docker.tf`
+
+* Replace the keys on lines 2-3 with the AWS IAM credentials (Note: these credentials are sensitive so make sure you remove them).
+
+* Edit line 24 in the `aws-docker.tf` and replace the node key with the one from the Docker Cloud key.
 
 ## Building the host
 Once the above edits are done you can now construct the EC2 instance.
@@ -36,4 +51,5 @@ Once the above edits are done you can now construct the EC2 instance.
 
 At the end it should show the IP address of the host created. You can SSH to the host with the username ubuntu and the identity of keys/id_rsa.pub
 
-Confirm you see a node provisioning in the Docker Cloud nodes section.
+## Next Steps
+Now you're ready to deploy the GitLab stack to the server follow the [instructions here](https://github.com/nsgov/gitlab-demo/tree/master/docker-cloud#gitlab-stack)
