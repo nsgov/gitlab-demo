@@ -5,6 +5,8 @@ Assumes the [Docker Cloud GitLab](https://github.com/nsgov/gitlab-demo/tree/mast
 ## Initialization
 We need to wait for 2-3mins for the interface to load
 
+* Log into the GitLab service endpoint
+
 * Set a password for the root account on the GitLab interface
 
 
@@ -36,7 +38,9 @@ You should see a runner registered with the name of the container from Docker Cl
 Now that we have a GitLab server and a CI/CD engine running (the runner), let's setup a workspace for a sample project to build.
 
 ### Setup a Group
-Login to the GitLab server
+Let's setup a group where we can share with users
+
+* Log into the GitLab service endpoint
 
 * Click on `+` and select `New group`
 
@@ -79,7 +83,11 @@ Login at [Docker Hub](https://hub.docker.com/)
 
 
 ### Confirm the Docker Hub CI/CD settings
-We need to add the hub.docker.com password to the project so it can push Docker containers 
+We need to add the hub.docker.com password to the project so it can push Docker containers.
+
+* Log into the GitLab service endpoint
+
+* Click on the `simpleweb` project.
 
 * Click on the `Settings` tab
 
@@ -108,9 +116,11 @@ Confirm your hub.docker.com registry name matches line 5
 * Once everything looks ok click on `Commit changes`
 
 ## Monitor the pipeline
-Login to GitLab website
+To view the build status we can check the pipeline
 
-* Click on the Project
+* Log into the GitLab service endpoint
+
+* Click on the `simpleweb` Project
 
 * Click on the `Pipelines` tab
 
