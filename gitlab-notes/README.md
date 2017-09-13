@@ -2,13 +2,13 @@
 
 * Assumes the Docker Cloud GitLab stack has been started
 
-## Intilization
+## Initialization
 We need to wait for 2-3mins for the interface to load
 
 Set a password for the root account on the app endpoint
 
 
-## Runnder bootstrap
+## Runner Bootstrap
 We need to attach the gitlab-multi-runner to the GitLab server once it's up. To complete
 this perform the following steps:
 
