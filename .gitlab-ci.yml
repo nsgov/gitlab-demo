@@ -6,10 +6,11 @@ services:
   - docker:dind
 
 variables:
-  USER: "hfxdevopdemo"
+  DOCKER_USER: 'hfxdevopdemo'
+  CONTAINER_NAME: 'hfxdevopdemo/simpleweb'
   
 # This stage compiles the webserver code and then artifacts the binary & html for 1 week
-Build Web Server:
+Compile Webserver:
   image: docker.io/golang
   stage: compile
   environment: qa
@@ -23,22 +24,22 @@ Build Web Server:
   
 # This stage builds the docker image and tags it as hfxdevopdemo/simpleweb:dev, it then pushes it to Docker Hub. 
 # We're using protected project variables for the user/password.
-Build Test Docker Image:
+Build Dev Tag:
   stage: build
   environment: dev
   script:
-    - docker login -u $USER -p $PASSWORD
-    - docker build -t hfxdevopdemo/simpleweb:dev .
-    - docker push hfxdevopdemo/simpleweb:dev
+    - docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+    - docker build -t ${CONTAINER_NAME}:dev .
+    - docker push ${CONTAINER_NAME}:dev
     
 # This stage builds the docker image and tags it as hfxdevopdemo/simpleweb:latest, it then pushes it to Docker Hub. 
 # We're using protected project variables for the user/password.
-Build Docker Image:
+Build Latest Tag:
   stage: build
   environment: prod
   script:
-    - docker login -u $USER -p $PASSWORD
-    - docker build -t hfxdevopdemo/simpleweb:latest .
-    - docker push hfxdevopdemo/simpleweb:latest
+    - docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+    - docker build -t ${CONTAINER_NAME}:latest .
+    - docker push ${CONTAINER_NAME}:latest
   only:
     - master
