@@ -14,4 +14,4 @@ SimpleWeb is another stack which will be a demo product created with a developme
 * Use docker-cloud/README.md to create a docker-cloud account
 * Use terraform/README.md to create an AWS EC2 instance to host the containers
 * Use docker-cloud/README.md to create the software stacks
-
+* Use gitlab-notes/README.md to setup the gitlab server and CI/CD
