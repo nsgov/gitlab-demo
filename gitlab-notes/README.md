@@ -14,7 +14,7 @@ this perform the following steps:
 
 Go to [docker-cloud](https://cloud.docker.com)
 
-Click on the Runner service
+Click on runner under the Service option
 
 Click on the runner-1 container
 
