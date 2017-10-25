@@ -3,7 +3,7 @@ image: haskdemo/centos-ruby-dind:2.0
 stages:
   - security
 
-inspec:
+Security Check:
   stage: security
   script:
     - bundle
