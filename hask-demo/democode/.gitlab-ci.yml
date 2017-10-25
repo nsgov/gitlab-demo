@@ -1,0 +1,13 @@
+image: haskdemo/centos-ruby-dind:2.0
+
+stages:
+  - security
+
+inspec:
+  stage: security
+  script:
+    - bundle
+    - bundle exec kitchen test --destroy=always
+  tags:
+    - docker
+

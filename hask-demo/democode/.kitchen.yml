@@ -1,0 +1,31 @@
+---
+driver:
+  name: docker
+  
+driver_config:
+  socket: tcp://127.0.0.1:4243
+  use_sudo: false
+  privileged: true
+  use_cache: true
+  hostname: testhost.tld
+
+provisioner:
+  name: puppet_apply
+  # Not installing chef since inspec is used for testing
+  require_chef_for_busser: false
+  manifests_path: manifests
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos
+    driver_plugin: docker
+    driver:
+      image: centos:7
+      run_command: /sbin/init
+
+suites:
+  - name: default
+    provisioner:
+      manifest: ssh.pp
