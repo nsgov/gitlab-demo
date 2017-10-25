@@ -17,6 +17,7 @@ runner:
   image: 'gitlab/gitlab-runner:latest'
   links:
     - app
+  privileged: true
   volumes:
     - '/var/run/docker.sock:/var/run/docker.sock'
 
